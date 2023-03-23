@@ -109,3 +109,23 @@ h2{
 .ok {
   color: black;
 }
+
+button {
+  min-width: 50px;
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid black;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  color:black;
+  -webkit-border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button:focus{
+  outline:none;
+}

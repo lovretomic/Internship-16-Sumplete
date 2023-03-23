@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helper } from "../../Helper";
 import Cell from "./Cell";
+import Message from "./Message";
 
 const Grid = () => {
   const [grid, setGrid] = useState(Helper.generateGrid(3));
@@ -21,8 +22,7 @@ const Grid = () => {
           />
         ))}
       </div>
-      {Helper.checkGrid(grid)[1] ? Helper.solveGrid(grid) : null}
-      {Helper.checkGrid(grid)[1] ? <h2>Puzzle solved! Well done</h2> : null}
+      {Helper.checkGrid(grid)[1] && <Message grid={grid} setGrid={setGrid} />}
     </>
   );
 };
