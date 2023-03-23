@@ -1,4 +1,4 @@
-import Grid from "./components/Grid/Grid";
+import Grid from "./components/Grid";
 
 function App() {
   return (

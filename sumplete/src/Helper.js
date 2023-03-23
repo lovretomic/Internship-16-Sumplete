@@ -94,15 +94,10 @@ export class Helper {
 
   static solveGrid(arr) {
     const grid = [...arr];
-    for (let i = 0; i < grid.length; i++) {
-      if (grid[i].solution) grid[i].status = cellStatus.selected;
-      else grid[i].status = cellStatus.removed;
-    }
-    /*
+
     grid.forEach((cell) => {
       if (cell.solution) cell.status = cellStatus.selected;
       else cell.status = cellStatus.removed;
     });
-    */
   }
 }
