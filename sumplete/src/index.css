@@ -36,10 +36,14 @@ code {
   transition: 100ms;
 }
 
-.cell.number:hover {
-  background-color: rgb(231, 231, 231);
-}
-
 .cell.sum {
   color: rgb(189, 189, 189);
+}
+
+.cell.selected {
+  background-color: green;
+}
+
+.cell.removed {
+  background-color: red;
 }
