@@ -16,8 +16,6 @@ export class Helper {
       grid.push(cell);
     }
 
-    console.log("test", grid);
-
     for (let i = 0; i <= numbersize - 1; i++) {
       for (let j = 0; j <= numbersize - 1; j++) {
         let r = Math.floor(Math.random() * 9) + 1;

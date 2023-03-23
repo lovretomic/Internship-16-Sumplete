@@ -1,9 +1,11 @@
-import { Helper } from "./Helper";
+import Grid from "./components/Grid/Grid";
 
 function App() {
-  return <div className="App">
-    <button onClick={() => console.log(Helper.generateGrid(3))}>Generate</button>
-  </div>;
+  return (
+    <div className="App">
+      <Grid />
+    </div>
+  );
 }
 
 export default App;
