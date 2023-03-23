@@ -35,7 +35,12 @@ const Cell = ({ value, type, id, status, ok, setGrid }) => {
 
   return (
     <div
-      className={`cell ${type} ${status} ${ok ? "ok" : ""}`}
+      className={`
+        cell
+        ${type}
+        ${type === "number" ? status : ""}
+        ${ok ? "ok" : ""}
+      `}
       onClick={
         type === cellType.number ? () => handleCellStatusSwitch(id) : null
       }

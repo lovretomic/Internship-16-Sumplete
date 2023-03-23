@@ -4,6 +4,7 @@ import Cell from "./Cell";
 
 const Grid = () => {
   const [grid, setGrid] = useState(Helper.generateGrid(3));
+  Helper.checkGrid(grid);
 
   return (
     <>
@@ -20,7 +21,8 @@ const Grid = () => {
           />
         ))}
       </div>
-      {Helper.checkGrid(grid)[1] && <h2>Puzzle solved! Well done</h2>}
+      {Helper.checkGrid(grid)[1] ? Helper.solveGrid(grid) : null}
+      {Helper.checkGrid(grid)[1] ? <h2>Puzzle solved! Well done</h2> : null}
     </>
   );
 };
