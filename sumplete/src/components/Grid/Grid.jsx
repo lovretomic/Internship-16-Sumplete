@@ -5,6 +5,7 @@ import Message from "./Message";
 
 const Grid = () => {
   const [grid, setGrid] = useState(Helper.generateGrid(3));
+  const [solved, setSolved] = useState(false);
   Helper.checkGrid(grid);
 
   return (
@@ -19,10 +20,13 @@ const Grid = () => {
             ok={cell.ok}
             setGrid={setGrid}
             key={cell.id}
+            solved={solved}
           />
         ))}
       </div>
-      {Helper.checkGrid(grid)[1] && <Message grid={grid} setGrid={setGrid} />}
+      {Helper.checkGrid(grid)[1] && (
+        <Message grid={grid} setGrid={setGrid} setSolved={setSolved} />
+      )}
     </>
   );
 };

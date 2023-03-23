@@ -2,7 +2,7 @@ import { cellStatus, cellType } from "../../../constants/enums";
 import { useCallback } from "react";
 import { Helper } from "../../../Helper";
 
-const Cell = ({ value, type, id, status, ok, setGrid }) => {
+const Cell = ({ value, type, id, status, ok, setGrid, solved }) => {
   const handleCellStatusSwitch = useCallback(
     (id) => {
       setGrid((prevGrid) => {
@@ -42,7 +42,9 @@ const Cell = ({ value, type, id, status, ok, setGrid }) => {
         ${ok ? "ok" : ""}
       `}
       onClick={
-        type === cellType.number ? () => handleCellStatusSwitch(id) : null
+        type === cellType.number && !solved
+          ? () => handleCellStatusSwitch(id)
+          : null
       }
     >
       <p className="cell__content">{value}</p>
