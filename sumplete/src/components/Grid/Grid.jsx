@@ -13,6 +13,7 @@ const Grid = () => {
           type={cell.type}
           id={cell.id}
           status={cell.status}
+          ok={cell.ok}
           setGrid={setGrid}
           key={cell.id}
         />

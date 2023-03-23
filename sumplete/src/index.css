@@ -47,3 +47,7 @@ code {
 .cell.removed {
   background-color: red;
 }
+
+.cell.ok {
+  color: black;
+}

@@ -38,6 +38,7 @@ export class Helper {
       }
       let index = i * gridsize + (gridsize - 1);
       grid[index].type = cellType.sum;
+      grid[index].ok = false;
       grid[index].value = sum;
     }
 
@@ -51,9 +52,36 @@ export class Helper {
       }
       let index = numbersize * gridsize + j;
       grid[index].type = cellType.sum;
+      grid[index].ok = false;
       grid[index].value = sum;
     }
 
+    return grid;
+  }
+
+  static checkGrid(arr) {
+    const grid = [...arr];
+    let numbersize = Math.sqrt(grid.length + 1);
+
+    for (let i = 0; i <= numbersize - 2; i++) {
+      let rowSum = 0;
+      let columnSum = 0;
+      for (let j = 0; j <= numbersize - 2; j++) {
+        let rowIndex = i * numbersize + j;
+        let columnIndex = j * numbersize + i;
+        if (grid[rowIndex].status !== cellStatus.removed)
+          rowSum += parseInt(grid[rowIndex].value);
+        if (grid[columnIndex].status !== cellStatus.removed)
+          columnSum += parseInt(grid[columnIndex].value);
+      }
+      let rowSumIndex = i * numbersize + (numbersize - 1);
+      let columnSumIndex = numbersize * (numbersize - 1) + i;
+
+      grid[rowSumIndex].ok =
+        rowSum === parseInt(grid[rowSumIndex].value) ? true : false;
+      grid[columnSumIndex].ok =
+        columnSum === parseInt(grid[columnSumIndex].value) ? true : false;
+    }
     return grid;
   }
 }
