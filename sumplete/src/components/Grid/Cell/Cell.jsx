@@ -27,7 +27,7 @@ const Cell = ({ value, type, id, status, ok, setGrid }) => {
           status: newStatus,
         };
         newGrid[cellIndex] = updatedCell;
-        return Helper.checkGrid(newGrid);
+        return Helper.checkGrid(newGrid)[0];
       });
     },
     [setGrid]

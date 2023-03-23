@@ -62,6 +62,7 @@ export class Helper {
   static checkGrid(arr) {
     const grid = [...arr];
     let numbersize = Math.sqrt(grid.length + 1);
+    let numberOfOkValues = 0;
 
     for (let i = 0; i <= numbersize - 2; i++) {
       let rowSum = 0;
@@ -77,11 +78,17 @@ export class Helper {
       let rowSumIndex = i * numbersize + (numbersize - 1);
       let columnSumIndex = numbersize * (numbersize - 1) + i;
 
-      grid[rowSumIndex].ok =
-        rowSum === parseInt(grid[rowSumIndex].value) ? true : false;
-      grid[columnSumIndex].ok =
-        columnSum === parseInt(grid[columnSumIndex].value) ? true : false;
+      if (rowSum === parseInt(grid[rowSumIndex].value)) {
+        grid[rowSumIndex].ok = true;
+        numberOfOkValues++;
+      } else grid[rowSumIndex].ok = false;
+
+      if (columnSum === parseInt(grid[columnSumIndex].value)) {
+        grid[columnSumIndex].ok = true;
+        numberOfOkValues++;
+      } else grid[columnSumIndex].ok = false;
     }
-    return grid;
+    if (numberOfOkValues === (numbersize - 1) * 2) return [grid, true];
+    else return [grid, false];
   }
 }
